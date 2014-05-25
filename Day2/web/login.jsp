@@ -12,8 +12,10 @@
 //String [] strings = request.getParameterValues("");
 //    DB
     if (username.equalsIgnoreCase("zhangsan") && password.equals("123")) {
+        session.setAttribute("username", "zhangsan");
 //页面跳转1 重定向REDIRECT: a.地址栏发生改变 b.不能保存request范围内的属性
         response.sendRedirect("home.jsp");
+//        request.getRequestDispatcher("home.jsp").forward(request, response);k
     } else {
         request.setAttribute("message", "用户名或密码错误");
 //页面跳转2 转发FORWARD:    a.地址栏不变 b.可以保存request范围内的属性

@@ -7,10 +7,11 @@
 <body>
 <h1>Day2...</h1>
 <%=request.getRequestURL()%><br>
-<%=request.getHeader("REFERER")%>
+<%=request.getHeader("REFERER")%><br>
+<%=session.getId()%>
 <form action="login.jsp" method="post">
-    username: <input name="username"/><br>
-    password: <input type="password" name="password"/><br>
+    username: <input name="username" value="zhangsan"><br>
+    password: <input type="password" name="password" value="123"><br>
     <input type="submit" value="LOGIN"/>
 </form>
 <em style="color: #f00;">
