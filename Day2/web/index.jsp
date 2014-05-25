@@ -11,5 +11,14 @@
     password: <input type="password" name="password"/><br>
     <input type="submit" value="LOGIN"/>
 </form>
+<em style="color: #f00;">
+    <%k
+        String message = (String) request.getAttribute("message");
+        if (message != null) {
+            out.print(message);
+        }
+    %>
+</em><br>
+<a href="signup.jsp">Sign up</a>
 </body>
 </html>

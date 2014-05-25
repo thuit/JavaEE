@@ -15,6 +15,7 @@
 //页面跳转1:
         response.sendRedirect("home.jsp");
     } else {
+        request.setAttribute("message", "用户名或密码错误");
 //页面跳转2:
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
