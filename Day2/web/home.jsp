@@ -12,5 +12,6 @@
 </head>
 <body>
 <h1>HOME page</h1>
+<%=session.getAttribute("key")%>
 </body>
 </html>
