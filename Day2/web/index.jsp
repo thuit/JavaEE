@@ -12,7 +12,7 @@
     <input type="submit" value="LOGIN"/>
 </form>
 <em style="color: #f00;">
-    <%k
+    <%
         String message = (String) request.getAttribute("message");
         if (message != null) {
             out.print(message);
