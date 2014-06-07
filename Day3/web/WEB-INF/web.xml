@@ -8,11 +8,12 @@
         1.  Servlet的注册
         2.  Servlet的映射-->
     <servlet>
-        <servlet-name>register</servlet-name>
-        <servlet-class>day3.demo.ResisterServlet</servlet-class>
+        <servlet-name>user</servlet-name>
+        <servlet-class>day3.demo.UserAction</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>register</servlet-name>
-        <url-pattern>/register</url-pattern>
+        <servlet-name>user</servlet-name>
+        <url-pattern>/user</url-pattern>
     </servlet-mapping>
+
 </web-app>

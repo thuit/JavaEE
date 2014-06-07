@@ -7,7 +7,8 @@
 </head>
 <body>
 <h1>Day3...</h1>
-<form action="login.jsp" method="post">
+<form action="user" method="post">
+    <input type="hidden" name="action" value="login">
     username: <input name="username" value="zhangsan"><br>
     password: <input type="password" name="password" value="123"><br>
     <input type="submit" value="LOGIN"/>

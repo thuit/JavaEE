@@ -13,7 +13,8 @@
 <body>
 <h1>sign up page</h1>
 
-<form action="register" method="post">
+<form action="user" method="post">
+    <input type="hidden" name="action" value="register">
     username: <input name="username"><br>
     password: <input type="password" name="password"><br>
     city: <select multiple="multiple" name="city">

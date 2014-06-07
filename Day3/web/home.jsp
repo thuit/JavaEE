@@ -14,6 +14,6 @@
 <h1>HOME page</h1>
 <%=session.getAttribute("username")%>
 <hr/>
-<a href="logout.jsp">LOGOUT</a>
+<a href="user?action=logout">LOGOUT</a>
 </body>
 </html>
