@@ -1,0 +1,5 @@
+1.  ip.txt -> MySQL
+
+2.  ip -> geo
+
+3.  String -> Image
