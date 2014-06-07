@@ -1,10 +1,19 @@
 package day3.demo;
 
+import com.mysql.jdbc.Driver;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.jsp.HttpJspPage;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 
 /**
  * Created by Administrator on 14-6-7.
@@ -48,13 +57,55 @@ public class UserAction extends HttpServlet {
     private void register(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        String[] cities = req.getParameterValues("city");
+        String[] cities = req.getParameterValues("city");//Beijing, Shanghai
         String[] hobbies = req.getParameterValues("hobbies");
 
-        System.out.println(username + ", " + password + ", " + cities.length + ", " + hobbies.length);
-//        DB
+//        JDBC - Java Database Connectivity
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+//        1. Driver
+            new Driver();
+//        2. Connection
+            connection = DriverManager.getConnection("jdbc:mysql:///test", "root", "123456");
+//        3. SQL
+            String register = "insert into user values(null, ?, ?, ?, ?)";
+//        4. Statement
+            preparedStatement = connection.prepareStatement(register);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            preparedStatement.setString(3, getString(cities));
+            preparedStatement.setString(4, getString(hobbies));
+//        5. insert
+            preparedStatement.executeUpdate();//Update: insert, update, delete DML
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
         resp.sendRedirect("index.jsp");
+    }
+
+    private String getString(String[] strings) {
+        String s = "";
+        for (int i = 0; i < strings.length; i++) {
+             s += strings[i] + ", ";
+        }
+        return s;
     }
 
     @Override
