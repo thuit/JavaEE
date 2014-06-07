@@ -13,7 +13,7 @@
 <body>
 <h1>sign up page</h1>
 
-<form action="register.jsp" method="post">
+<form action="register" method="post">
     username: <input name="username"><br>
     password: <input type="password" name="password"><br>
     city: <select multiple="multiple" name="city">

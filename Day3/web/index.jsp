@@ -6,10 +6,7 @@
     <title></title>
 </head>
 <body>
-<h1>Day2...</h1>
-<%=request.getRequestURL()%><br>
-<%=request.getHeader("REFERER")%><br>
-<%=session.getId()%>
+<h1>Day3...</h1>
 <form action="login.jsp" method="post">
     username: <input name="username" value="zhangsan"><br>
     password: <input type="password" name="password" value="123"><br>
@@ -17,15 +14,15 @@
 </form>
 <em style="color: #f00;">
     <%
-        String message = (String) request.getAttribute("message");
-        if (message != null) {
-            out.print(message);
-        }
+    String message = (String) request.getAttribute("message");
+    if (message != null) {
+        out.print(message);
+    }
 
 //        session.setAttribute("key", "value");
 //        out.print(session.getAttribute("key"));
 
-    %>
+%>
 </em><br>
 <a href="signup.jsp">Sign up</a>
 <hr/>
