@@ -9,13 +9,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
     <title></title>
 </head>
 <body>
 <h1>HOME page</h1>
-<%=session.getAttribute("username")%>
+${sessionScope.username}
 <hr/>
 <a href="user?action=logout">LOGOUT</a>
 <hr/>
@@ -32,12 +34,33 @@
     <input type="submit" value="ADD">
 </form>
 <hr/>
-<h2>BOOK LIST</h2>JSTL
-<%
-    List<Book> books = (List<Book>) session.getAttribute("books");
-    for (Book book : books) {
-        out.print("title:" + book.getTitle() + "<br>");
-    }
-%>
+<h2>BOOK LIST</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>AUTHOR</th>
+        <th>PRESS</th>
+        <th>PICTURE</th>
+        <th>DATE</th>
+        <th>PRICE</th>
+        <th>AMOUNT</th>
+        <th colspan="2">OPERATION</th>
+    </tr>
+    <c:forEach var="book" items="${sessionScope.books}" varStatus="vs">
+        <tr>
+            <td>${vs.count}</td>
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>${book.press}</td>
+            <td>${book.picture}</td>
+            <td>${book.date}</td>
+            <td>${book.price}</td>
+            <td>${book.amount}</td>
+            <td><a href="">EDIT</a></td>
+            <td><a href="">REMOVE</a></td>
+        </tr>
+    </c:forEach>
+</table>
 </body>
 </html>
