@@ -61,7 +61,7 @@ public class UserAction extends HttpServlet {
         DB.close(resultSet, preparedStatement, null);
         if (b) {
             req.getSession().setAttribute("username", username);
-            resp.sendRedirect("home.jsp");
+            resp.sendRedirect("book?action=list");
         } else {
             req.setAttribute("message", "invalid username or password.");
             req.getRequestDispatcher("index.jsp").forward(req, resp);

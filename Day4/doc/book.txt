@@ -10,7 +10,7 @@ book:
 
 user login:
 
-    add bookk
+    add book
+    list book
     edit book
     remove book
-    list book

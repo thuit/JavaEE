@@ -7,6 +7,9 @@
 </head>
 <body>
 <h1>Day4...</h1>
+<%
+    out.print(request.getHeader("User-Agent"));
+%>
 <form action="user" method="post">
     <input type="hidden" name="action" value="login">
     username: <input name="username" value="zhangsan"><br>
