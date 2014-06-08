@@ -1,4 +1,4 @@
-package test;
+package ip.demo.util;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.text.ParseException;
 
-public class String2ImageTest {
+public class String2Image {
 
     public static void gen(String text, int fontSize) throws IOException {
         BufferedImage bufferedImage = new BufferedImage(fontSize * text.length(), fontSize, BufferedImage.TYPE_4BYTE_ABGR);

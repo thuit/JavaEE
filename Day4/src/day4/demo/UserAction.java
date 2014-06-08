@@ -1,6 +1,7 @@
 package day4.demo;
 
 import day4.demo.util.DB;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -50,7 +51,7 @@ public class UserAction extends HttpServlet {
 
     private void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, SQLException {
         String username = req.getParameter("username");
-        String password = req.getParameter("password");
+        String password = DigestUtils.md5Hex(req.getParameter("password"));
 
         String register = "select * from user where username=? and password=?";
         preparedStatement = connection.prepareStatement(register);
@@ -71,7 +72,7 @@ public class UserAction extends HttpServlet {
 
     private void register(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, SQLException {
         String username = req.getParameter("username");
-        String password = req.getParameter("password");
+        String password = DigestUtils.md5Hex(req.getParameter("password"));
         String[] cities = req.getParameterValues("city");//Beijing, Shanghai
         String[] hobbies = req.getParameterValues("hobbies");
 

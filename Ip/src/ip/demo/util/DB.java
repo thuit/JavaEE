@@ -26,14 +26,32 @@ public class DB {
         System.out.println((System.currentTimeMillis() - start) / 1000);
     }
 
+    private static String format(String ip) {
+        String[] strings = ip.split("\\.");
+        String newip = "";
+        for (int i = 0; i < strings.length; i++) {
+            String string = strings[i];
+            if (string.length() == 1) {
+                string = "00" + string;
+                newip += string;
+            } else if (string.length() == 2) {
+                string = "0" + string;
+                newip += string;
+            } else {
+                newip +=string;
+            }
+        }
+        return newip;
+    }
+
     private static void dump(Vector<String[]> records) throws Exception {
         new Driver();
         Connection connection = DriverManager.getConnection(URL);
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
         for (String[] record : records) {
-            for (int i = 0; i < 3; i++) {
-                preparedStatement.setString(i + 1, record[i]);
-            }
+            preparedStatement.setString(1, format(record[0]));
+            preparedStatement.setString(2, format(record[1]));
+            preparedStatement.setString(3, record[2]);
             preparedStatement.addBatch();
         }
         preparedStatement.executeBatch();

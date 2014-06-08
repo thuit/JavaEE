@@ -1,4 +1,4 @@
-package test;
+package ip.demo.util;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -8,7 +8,7 @@ import java.io.File;
 /**
  * Created by Administrator on 14-6-7.
  */
-public class ImageOverlayTest {
+public class ImageOverlay {
 
     public static void main(String[] args) throws Exception {
 
@@ -16,8 +16,8 @@ public class ImageOverlayTest {
         File path = new File("IP/web/image");
 
         // load source images
-        BufferedImage image = ImageIO.read(new File(path, "s.png"));
-        BufferedImage overlay = ImageIO.read(new File(path, "o.png"));
+        BufferedImage image = ImageIO.read(new File(path, "ip.png"));
+        BufferedImage overlay = ImageIO.read(new File(path, "new.png"));
 
         // create the new image, canvas size is the max. of both image sizes
         int w = Math.max(image.getWidth(), overlay.getWidth());
