@@ -1,6 +1,3 @@
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="day4.demo.entity.Book" %>
-<%@ page import="java.util.List" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator

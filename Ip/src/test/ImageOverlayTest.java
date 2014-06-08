@@ -16,8 +16,8 @@ public class ImageOverlayTest {
         File path = new File("IP/web/image");
 
         // load source images
-        BufferedImage image = ImageIO.read(new File(path, "combined.png"));
-        BufferedImage overlay = ImageIO.read(new File(path, "e.png"));
+        BufferedImage image = ImageIO.read(new File(path, "s.png"));
+        BufferedImage overlay = ImageIO.read(new File(path, "o.png"));
 
         // create the new image, canvas size is the max. of both image sizes
         int w = Math.max(image.getWidth(), overlay.getWidth());
@@ -30,6 +30,6 @@ public class ImageOverlayTest {
         g.drawImage(overlay, 0, 0, null);
 
         // Save as new image
-        ImageIO.write(combined, "PNG", new File(path, "combined.png"));
+        ImageIO.write(combined, "PNG", new File(path, "c.png"));
     }
 }

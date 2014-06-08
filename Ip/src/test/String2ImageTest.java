@@ -15,7 +15,7 @@ public class String2ImageTest {
         Graphics2D g = (Graphics2D) bufferedImage.getGraphics();
         g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g.setFont(new Font("Arial", Font.BOLD, fontSize));
-        g.setPaint(Color.white);
+        g.setPaint(Color.black);
         g.drawString(text, 0, fontSize - 10);
         g.dispose();
         ImageIO.write(bufferedImage, "png", new File("Ip/web/image/new.png"));
@@ -72,7 +72,7 @@ public class String2ImageTest {
 
     public static void main(String[] args) throws IOException, ParseException {
         gen("test...test...test", 50);
-        setAlpha(getOutputStream("IP/web/image/new.png"));
+//        setAlpha(getOutputStream("IP/web/image/new.png"));
     }
 }
 
