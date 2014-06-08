@@ -13,11 +13,11 @@ public class ImageOverlayTest {
     public static void main(String[] args) throws Exception {
 
 
-        File path = new File("");
+        File path = new File("IP/web/image");
 
         // load source images
-        BufferedImage image = ImageIO.read(new File(path, "image.png"));
-        BufferedImage overlay = ImageIO.read(new File(path, "overlay.png"));
+        BufferedImage image = ImageIO.read(new File(path, "combined.png"));
+        BufferedImage overlay = ImageIO.read(new File(path, "e.png"));
 
         // create the new image, canvas size is the max. of both image sizes
         int w = Math.max(image.getWidth(), overlay.getWidth());
