@@ -1,0 +1,16 @@
+book:
+    id  PK AI
+    title
+    author
+    press
+    picture
+    date
+    price
+    amount
+
+user login:
+
+    add bookk
+    edit book
+    remove book
+    list book
