@@ -15,7 +15,7 @@ import java.util.Vector;
  */
 public class DB {
 
-    private static final String URL = "jdbc:mysql:///test?user=root&password=123456&rewriteBatchedStatements=true";
+    private static final String URL = "jdbc:mysql:///test?user=root&password=&rewriteBatchedStatements=true";
     private static final String SQL = "insert into ip values(?, ?, ?)";
     private static Vector<String[]> records = new Vector<String[]>();
 
